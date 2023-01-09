@@ -1,7 +1,12 @@
 package main
 
+import (
+	"algorithms/search"
+	"fmt"
+)
+
 func main() {
-	array := []int{1, 2, 3, 110, 4, 5, 9}
+	//array := []int{1, 2, 3, 110, 4, 5, 9}
 
 	//if result, err := search.BinarySearch(array, 2); err != nil {
 	//	fmt.Println(err.Error())
@@ -16,4 +21,11 @@ func main() {
 	//fmt.Println(recursion.FindMax(array))
 
 	//fmt.Println(recursion.BinarySearch(array, 9))
+
+	var book search.IPhonebook
+	book = search.NewPhonebook()
+
+	book.Add("mary", "213")
+	book.Add("alex", "123123")
+	fmt.Printf(book.Get("alex2"))
 }
