@@ -2,35 +2,39 @@ package common
 
 import "errors"
 
-type Graph[T Numeric] struct {
-	Vertices []*Vertex[T]
+type Graph struct {
+	Vertices []*Vertex
 }
 
-type Vertex[T Numeric] struct {
-	Key      T
-	Adjacent []*Vertex[T]
+type Vertex struct {
+	Key      int
+	Adjacent []*Vertex
 }
 
-func NewGraph[T Numeric]() Graph[T] {
-	g := Graph[T]{}
-	g.Vertices = make([]*Vertex[T], 0)
+func Equal(u Vertex, v Vertex) bool {
+	return u.Key == v.Key
+}
+
+func NewGraph[T Numeric]() Graph {
+	g := Graph{}
+	g.Vertices = make([]*Vertex, 0)
 
 	return g
 }
 
-func (g *Graph[T]) AddVertex(key T) error {
+func (g *Graph) AddVertex(key int) error {
 	if containsVertex(g.Vertices, key) {
 		return errors.New("has the key already")
 	}
 
-	g.Vertices = append(g.Vertices, &Vertex[T]{
+	g.Vertices = append(g.Vertices, &Vertex{
 		Key: key,
 	})
 
 	return nil
 }
 
-func (g *Graph[T]) AddEdge(to, from T) error {
+func (g *Graph) AddEdge(to, from int) error {
 	toV, fromV := getVertex(g.Vertices, to), getVertex(g.Vertices, from)
 
 	if toV == nil || fromV == nil {
@@ -46,7 +50,7 @@ func (g *Graph[T]) AddEdge(to, from T) error {
 	return nil
 }
 
-func getVertex[T Numeric](vertices []*Vertex[T], key T) *Vertex[T] {
+func getVertex(vertices []*Vertex, key int) *Vertex {
 	for _, v := range vertices {
 		if v.Key == key {
 			return v
@@ -56,7 +60,7 @@ func getVertex[T Numeric](vertices []*Vertex[T], key T) *Vertex[T] {
 	return nil
 }
 
-func containsVertex[T Numeric](vertices []*Vertex[T], key T) bool {
+func containsVertex(vertices []*Vertex, key int) bool {
 	for _, v := range vertices {
 		if v.Key == key {
 			return true
