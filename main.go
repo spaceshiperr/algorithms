@@ -1,9 +1,8 @@
 package main
 
 import (
-	"algorithms/common"
-	"algorithms/search"
 	"fmt"
+	"math"
 )
 
 func main() {
@@ -80,80 +79,83 @@ func main() {
 	//	},
 	//}
 
-	vertices := []common.DirectedVertex{
-		{
-			Id: 1,
-		},
-		{
-			Id: 2,
-		},
-		{
-			Id: 3,
-		},
-		{
-			Id: 4,
-		},
-		{
-			Id: 5,
-		},
-		{
-			Id: 6,
-		},
-	}
+	//vertices := []common.DirectedVertex{
+	//	{
+	//		Id: 1,
+	//	},
+	//	{
+	//		Id: 2,
+	//	},
+	//	{
+	//		Id: 3,
+	//	},
+	//	{
+	//		Id: 4,
+	//	},
+	//	{
+	//		Id: 5,
+	//	},
+	//	{
+	//		Id: 6,
+	//	},
+	//}
+	//
+	//edges := make(map[int][]common.DirectedEdge, 0)
+	//edges[1] = []common.DirectedEdge{
+	//	{
+	//		From:   1,
+	//		To:     2,
+	//		Weight: 2,
+	//	},
+	//	{
+	//		From:   1,
+	//		To:     3,
+	//		Weight: 4,
+	//	},
+	//}
+	//edges[2] = []common.DirectedEdge{
+	//	{
+	//		From:   2,
+	//		To:     4,
+	//		Weight: 7,
+	//	},
+	//	{
+	//		From:   2,
+	//		To:     3,
+	//		Weight: 1,
+	//	},
+	//}
+	//edges[3] = []common.DirectedEdge{
+	//	{
+	//		From:   3,
+	//		To:     5,
+	//		Weight: 3,
+	//	},
+	//}
+	//edges[4] = []common.DirectedEdge{
+	//	{
+	//		From:   4,
+	//		To:     6,
+	//		Weight: 1,
+	//	},
+	//}
+	//edges[5] = []common.DirectedEdge{
+	//	{
+	//		From:   5,
+	//		To:     6,
+	//		Weight: 5,
+	//	},
+	//	{
+	//		From:   5,
+	//		To:     4,
+	//		Weight: 2,
+	//	},
+	//}
 
-	edges := make(map[int][]common.DirectedEdge, 0)
-	edges[1] = []common.DirectedEdge{
-		{
-			From:   1,
-			To:     2,
-			Weight: 2,
-		},
-		{
-			From:   1,
-			To:     3,
-			Weight: 4,
-		},
-	}
-	edges[2] = []common.DirectedEdge{
-		{
-			From:   2,
-			To:     4,
-			Weight: 7,
-		},
-		{
-			From:   2,
-			To:     3,
-			Weight: 1,
-		},
-	}
-	edges[3] = []common.DirectedEdge{
-		{
-			From:   3,
-			To:     5,
-			Weight: 3,
-		},
-	}
-	edges[4] = []common.DirectedEdge{
-		{
-			From:   4,
-			To:     6,
-			Weight: 1,
-		},
-	}
-	edges[5] = []common.DirectedEdge{
-		{
-			From:   5,
-			To:     6,
-			Weight: 5,
-		},
-		{
-			From:   5,
-			To:     4,
-			Weight: 2,
-		},
-	}
+	//g := common.NewDirectedGraph(vertices, edges)
+	//paths := search.GetShortestPath(g, 1)
+	//fmt.Printf("%v", paths)
 
-	g := common.NewDirectedGraph(vertices, edges)
-	paths := search.GetShortestPath(g, 1)
-	fmt.Printf("%v", paths)
+	inf := math.Inf(1)
+	fmt.Printf("%v", 1 < inf)
 }
